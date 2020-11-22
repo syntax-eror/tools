@@ -1,0 +1,6 @@
+#windows netsh
+#netsh can capture packets natively in Windows
+#etl is proprietary format used by wind
+netsh trace start capture=yes maxsize=1000 tracefile=capture.etl
+netsh trace stop
+#use tool like etl2pcapng.exe to convert to pcap
