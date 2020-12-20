@@ -1,0 +1,3 @@
+hydra -l <user> -p <pw> <protocol>://<ip> #-L for file, -P for file
+hydra -l root -p root ssh://10.0.0.1
+protocol - telnet, ftp, smb, etc
