@@ -1,2 +1,10 @@
 -p <port>
 -sU - UDP scan
+-sn - ping
+
+#scripts#
+--script dns-brute #actively interrogate DNS server for names
+nmap --script dns-brute --script-args dns-brute.domain=<domain>,dns-brute.threads=<x>,dns-brute.hostlist=<fileofnamestoquery> -sS -p 53
+-threads = # of names to query simult
+-p = port
+-sS = ????
