@@ -1,6 +1,8 @@
 -p <port>
 -sU - UDP scan
 -sn - ping
+-sV - attempt to get additional service information from ports
+--reason - show reason for port status
 
 #scripts#
 --script dns-brute #actively interrogate DNS server for names
@@ -8,3 +10,6 @@ nmap --script dns-brute --script-args dns-brute.domain=<domain>,dns-brute.thread
 -threads = # of names to query simult
 -p = port
 -sS = ????
+
+
+
