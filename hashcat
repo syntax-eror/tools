@@ -1,0 +1,41 @@
+-----------# HASHC #-----------
+look for hashes that do not have these two patterns: aadb:dcfed
+=LANMAN hashes=
+aad[#]b - A A D B - indicates this is an empty LANMAN hash - not active account  eg Admin:500:aad3b435b510413eeeeaadb
+#mnemonic device - All Active Directory (is) Bad
+
+NT hashes - D C F E D - 21d5cfe0d - indicates this is an empty NT hash - not active account - eg Admin:500:aad3b435b510413eeeeaabetc:21d5cfe0d
+#mnemonic device - Dumb Crypto Fucks Everything Disastrously
+
+#hashcat - first need to identify hash mode needed
+#show hashcat options with hashcat --help | findstr/grep <hashtype>
+hashcat --help | findstr LM
+MD5 mode -m 0
+NTLM mode -m 1000
+NT mode (old LANMAN pws) -m 3000
+hashcat -a 0 -m 1000 hashes.txt words.txt
+#use m 1000 - NTLM use 0 straight attack read from hashes.txt file use words.txt as dict file
+#use --show argument to show which hashes are associated with password cracked
+hashcat -a 0 -m 1000hashes.txt words.txt --show
+
+hashcat -a 0 #dictionary wordlist attack
+hashcat -a 1 #dictionary combinator, append each word to every other word using 2 files or 1 file twice
+hashcat -a 3 #brute force mask attack using specified patterns
+hashcat -a 6 #combined hybrid wordlist + mask, append mask to wordlist words
+hashcat -a 7 #6 but pre-pend word
+
+hashcat -a 3 #mask attack; use syntax
+?l - lower
+?u - upper
+?d - digits
+?s - special
+?a - all above
+hashcat -m 1000 -a 0 hashes.txt words.txt #try all words in words.txt against hashes.txt
+hashcat -m 1000 -a 3 hashes.txt ?u?l?l?l?l?l?d?d #8 char pw, starts with upper, 5 lowercase in middle, 2 digits
+hashcat -m 1000 -a 6 hashes.txt words.txt ?s?d  #take wordlist file and add mask to end ?s?d = specialchar, digit
+hashcat -m 1000 -a 7 hashes.txt ?s?d? words.txt  #take wordlist and prepend mask
+
+hashcat can also use rules to apply permutations;
+hashcat -a 0 -m 1000 hash.txt words.txt -r best64.rule  #64 permutations of words in wordlsit
+#leetspeak is a good rule to try
+hashcat -a 0 -m 1000 -r rules\Incisive-leetspeak.rule hash.txt words.txt #l33tspeak all words in words.txt
