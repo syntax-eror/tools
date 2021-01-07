@@ -3,4 +3,4 @@ tcpdump -i eth0 -w <file>
 
 tcpdump -r <file> -nn #read from <file>, don't resolve hosts and ports
 
-tcpdump -D #enumerate available ints
+tcpdump -D #enumerate available interfaces
