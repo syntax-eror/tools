@@ -3,3 +3,4 @@ responder -I <int> -i <ip> #to listen for one specific IP, otherwise will listen
 
 #when target computer on network requests system that does not exist, responder will send a LLMNR answer
 #then capture the hash of SMB creds from target
+#captured info will be saved to /opt/responder/logs
