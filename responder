@@ -1,0 +1,5 @@
+#responder is a python utility for attacking LLMNR
+responder -I <int>
+
+#when target computer on network requests system that does not exist, responder will send a LLMNR answer
+#then capture the hash of SMB creds from target
