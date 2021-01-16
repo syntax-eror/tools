@@ -5,6 +5,9 @@ chown /etc/shadow
 unshadow passwd shadow > newfilename #unshadow is a jtr utility
 unshadow /etc/passwd /etc/shadow > combinedpw #another way to merge
 cat newfilename | awk -F: '{print $2'}  #use : as delimiter; print second field ($2) which is the password hash for linux systems
+#identify hash type $1 = MD5, etc
+john --format=md5crypt
+john --list=formats
 john newfilename #run on combined unshadowed file; will do default john cracking actions, stepping through each method;
 #single, wordlist, then incremental
 john newfilename --show #show already cracked results; will not show if file has already been cracked otherwise
