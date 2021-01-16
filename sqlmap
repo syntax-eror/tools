@@ -1,0 +1,4 @@
+#sqlmap
+#http://sqlmap.org/
+
+sqlmap -u "<full-url>" #must be a valid, full url, ie dvwa.org/index.php?search=test
