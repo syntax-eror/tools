@@ -5,7 +5,7 @@
 --reason - show reason for port status
 
 #scripts#
---script dns-brute #actively interrogate DNS server for names
+--script=dns-brute #actively interrogate DNS server for names
 nmap --script dns-brute --script-args dns-brute.domain=<domain>,dns-brute.threads=<x>,dns-brute.hostlist=<fileofnamestoquery> -sS -p 53
 -threads = # of names to query simult
 -p = port
