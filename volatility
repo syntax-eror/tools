@@ -1,0 +1,4 @@
+cd /opt/volatility
+source venv/bin/activate
+python vol.py -f /<location>.mem --profile <profile> <plugin_name>
+#grep to narrow results
