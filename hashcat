@@ -39,3 +39,6 @@ hashcat can also use rules to apply permutations;
 hashcat -a 0 -m 1000 hash.txt words.txt -r best64.rule  #64 permutations of words in wordlsit
 #leetspeak is a good rule to try
 hashcat -a 0 -m 1000 -r rules\Incisive-leetspeak.rule hash.txt words.txt #l33tspeak all words in words.txt
+
+#store in specific potfile
+hashcat -a 0 -m 1000 hashes.txt words.txt --potfile-path potfile.potfile
