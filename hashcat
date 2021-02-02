@@ -17,6 +17,10 @@ hashcat -a 0 -m 1000 hashes.txt words.txt
 #use m 1000 - NTLM use 0 straight attack read from hashes.txt file use words.txt as dict file
 #use --show argument to show which hashes are associated with password cracked
 hashcat -a 0 -m 1000hashes.txt words.txt --show
+Linux shadow file types;
+    MD5 Crypt: -m 500
+    SHA256 Crypt: -m 7400
+    SHA512 Crypt: -m 1800
 
 hashcat -a 0 #dictionary wordlist attack
 hashcat -a 1 #dictionary combinator, append each word to every other word using 2 files or 1 file twice
